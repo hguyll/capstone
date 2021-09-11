@@ -1,0 +1,27 @@
+[
+	{
+		"OrganizationName": "Obedience",
+		"OrganizationId": "obedience",
+		"Description": "Obedience Description"
+	},
+	{
+		"OrganizationName": "Dock Diving",
+		"OrganizationId": "dockdiving",
+		"Description": "Obedience Description"
+	},
+	{
+		"OrganizationName": "Scent Work",
+		"OrganizationId": "scentwork",
+		"Description": "Scent Work Description"
+    },
+    {
+		"OrganizationName": "Conformation",
+		"OrganizationId": "conformation",
+		"Description": "Conformation Description" 
+	},
+	{
+		"OrganizationName": "Agility",
+		"OrganizationId": "agility",
+		"Description": "Agility Description"
+	}
+]

@@ -1,0 +1,98 @@
+[
+    {
+        "GroupId": 1,
+        "GroupName": "Texas Obedience Event",
+        "OrganizationName": "Obedience",
+        "SponsorName": "Natalie Rachelle",
+        "SponsorPhone": "555-000-0000",
+        "SponsorEmail": "nat214@gmail.com",
+        "MaxGroupSize": 5,
+        "Members": [
+            {
+                "MemberId": 2,
+                "MemberEmail": "theaterkid0625@gmail.com",
+                "MemberName": "Ezra Aiden",
+                "MemberPhone": "555-000-0002",
+                "MemberRole": "user",
+                "MemberDogName": "Fluffy",
+                "MemberDogBreed": "Golden Retriever"
+            },
+            {
+                "MemberId": 4,
+                "MemberEmail": "aslan_the_great@gmail.com",
+                "MemberName": "Elisha Aslan",
+                "MemberPhone": "555-000-0003",
+                "MemberRole": "user",
+                "MemberDogName": "Bear",
+                "MemberDogBreed": "Golden Retriever"
+            },
+            {
+                "MemberId": 6,
+                "MemberEmail": "susa2007@gmail.com",
+                "MemberName": "Siddalee Grace",
+                "MemberPhone": "555-000-0020",
+                "MemberRole": "user",
+                "MemberDogName": "Aussie",
+                "MemberDogBreed": "Australian Shepherd"
+            },
+            {
+                "MemberId": 8,
+                "MemberEmail": "golden@golden3.com",
+                "MemberName": "Name",
+                "MemberPhone": "123-456-7890",
+                "MemberRole": "user",
+                "MemberDogName": "Fluffy",
+                "MemberDogBreed": "Golden Retriever"
+            }
+        ]
+    },
+    {
+        "GroupId": 2,
+        "GroupName": "Florida Dog Show",
+        "OrganizationName": "Conformation",
+        "SponsorName": "Brittany Ray",
+        "SponsorPhone": "555-000-0004",
+        "SponsorEmail": "brit805@aol.com",
+        "MaxGroupSize": 10,
+        "Members": [
+            {
+                "MemberId": 1,
+                "MemberEmail": "pursy1222@gmail.com",
+                "MemberName": "Pursalane Faye",
+                "MemberPhone": "555-000-0005",
+                "MemberRole": "user",
+                "MemberDogName": "Truffle",
+                "MemberDogBreed": "Lagotto Romagnolo"
+            },
+            {
+                "MemberId": 5,
+                "MemberEmail": "thebro@gmail.com",
+                "MemberName": "Zephaniah Hughes",
+                "MemberPhone": "555-000-0006",
+                "MemberRole": "user",
+                "MemberDogName": "Fluffy",
+                "MemberDogBreed": "Labrador Retriever"
+            }
+        ]
+    },
+    {
+        "GroupId": 3,
+        "GroupName": "Dock Diving Event",
+        "OrganizationName": "Dock Diving",
+        "SponsorName": "Zachary Westly",
+        "SponsorPhone": "555-000-0012",
+        "SponsorEmail": "zwest90@gmail.com",
+        "MaxGroupSize": 7,
+        "Members": [
+            {
+                "MemberId": 3,
+                "MemberEmail": "ian_the_great@gmail.com",
+                "MemberName": "Ian Auston",
+                "MemberPhone": "555-000-0025",
+                "MemberRole": "user",
+                "MemberDogName": "Butter",
+                "MemberDogBreed": "Golden Retriever"
+            }
+        ]
+    }
+]
