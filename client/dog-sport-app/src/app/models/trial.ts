@@ -1,5 +1,5 @@
 export interface Trial {
-    GroupId: number;
+    GroupId: string;
     GroupName: string;
     OrganizationName: string;
     SponsorName: string;

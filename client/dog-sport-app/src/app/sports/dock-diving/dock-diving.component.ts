@@ -10,21 +10,34 @@ import { Trial } from '../../models/trial';
 })
 export class DockDivingComponent implements OnInit {
   trialList: Trial[];
-  private subscription: any;
+  trial: Trial;
+  private getTrialsSubscription: any;
+  private getTrialDetailSubscription: any;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.getTrials();
+    this.getDivingTrials();
   }
 
-  getTrials(): void {
-    this.subscription = this.dataService.getAllEvents<Trial[]>().subscribe(
+  retrieveTrial(selectedTrial: Trial): void {
+    console.log(selectedTrial);
+    console.log(selectedTrial.GroupId);
+    this.getTrialDetailSubscription = this.dataService.getTrialById<Trial>(selectedTrial.GroupId).subscribe(
+      (trialDetail) => this.showTrial(trialDetail),
+      (error) => console.log(`error: {error}`)
+    );
+  }
+
+  showTrial(trial) {
+    this.trial = trial;
+    console.log(this.trial);
+  }
+
+  getDivingTrials(): void {
+    this.getTrialsSubscription = this.dataService.getAllTrials<Trial[]>().subscribe(
       (allTrials) => {
-        console.log(allTrials);
         this.trialList = allTrials.filter(trials => {
-          console.log(trials);
-          console.log(trials.OrganizationName === "Dock Diving");
           return trials.OrganizationName === "Dock Diving";
         });
       }
@@ -32,6 +45,7 @@ export class DockDivingComponent implements OnInit {
   }
 
   ngOnDestroy(){
-    this.subscription.unsubscribe();
+    this.getTrialsSubscription.unsubscribe();
+    this.getTrialDetailSubscription.unsubscribe();
   }
 }

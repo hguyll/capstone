@@ -9,7 +9,7 @@
             <th>Current Signups</th>
             <th>Max Signups</th>
         </tr>
-        <tr *ngFor="let trial of trialList">
+        <tr *ngFor="let trial of trialList" (click)="retrieveTrial(trial)">
             <td>{{ trial.GroupName }}</td>
             <td>todo</td>
             <td>todo</td>
