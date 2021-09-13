@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+        <li>
+            <a [routerLink]="['']">Home</a>
+        </li>
+        <li *ngFor="let sport of sports">
+            <a [routerLink]="['/sport', sport]" >{{ sport }}</a>
+        </li>
+    </ul>
+</nav>

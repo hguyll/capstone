@@ -1,0 +1,21 @@
+.sport {
+    display: flex;
+    justify-content: space-around;
+}
+
+table {
+    font-family: Noto Sans, sans-serif;
+    margin-top: 2em;
+    width: 50%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid lightskyblue;
+    padding: 1em;
+}
+
+tr:nth-child(even) {
+    background-color: lightskyblue;
+}
