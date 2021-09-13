@@ -1,10 +1,10 @@
 <nav>
     <ul>
         <li>
-            <a [routerLink]="['']">Home</a>
+            <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
         </li>
         <li *ngFor="let sport of sports">
-            <a [routerLink]="['/sport', sport]" >{{ sport }}</a>
+            <a [routerLink]="['/sport', sport]" routerLinkActive="active">{{ sport }}</a>
         </li>
     </ul>
 </nav>
