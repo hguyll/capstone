@@ -10,6 +10,7 @@ import { Trial } from '../../models/trial';
 })
 export class DockDivingComponent implements OnInit {
   trialList: Trial[];
+  private subscription: any;
 
   constructor(private dataService: DataService) { }
 
@@ -18,7 +19,7 @@ export class DockDivingComponent implements OnInit {
   }
 
   getTrials(): void {
-    this.dataService.getAllEvents<Trial[]>().subscribe(
+    this.subscription = this.dataService.getAllEvents<Trial[]>().subscribe(
       (allTrials) => {
         console.log(allTrials);
         this.trialList = allTrials.filter(trials => {
@@ -28,5 +29,9 @@ export class DockDivingComponent implements OnInit {
         });
       }
     );
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }
