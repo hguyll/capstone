@@ -9,6 +9,7 @@ import { DockDivingComponent } from './sports/dock-diving/dock-diving.component'
 import { ObedienceComponent } from './sports/obedience/obedience.component';
 import { ScentWorkComponent } from './sports/scent-work/scent-work.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
