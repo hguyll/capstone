@@ -1,6 +1,6 @@
+
 nav {
-    background-color: lightgoldenrodyellow;
-    height: 5em;
+    padding: 2em;
 }
 
 nav>ul {
@@ -12,11 +12,14 @@ nav>ul {
 nav>ul>li>a {
     text-decoration: none;
     display: block;
-    padding: 1.9em 1.9em;
-
+    padding-left: 1.9em;
+    padding-right: 1.9em;
+    /* padding: 1.9em 1.9em; */
+    color: black;
+    font-weight: bold;
 }
 
 nav>ul>li>a.active {
-    background-color: lightcoral;
+    border-bottom: 3px solid rgb(148, 223, 219); 
 }
 

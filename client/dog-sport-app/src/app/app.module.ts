@@ -10,6 +10,12 @@ import { ObedienceComponent } from './sports/obedience/obedience.component';
 import { ScentWorkComponent } from './sports/scent-work/scent-work.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TrialDetailComponent } from './sports/trial-detail/trial-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateTrialComponent } from './sports/create-trial/create-trial.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +25,18 @@ import { HttpClientModule } from '@angular/common/http';
     DockDivingComponent,
     ObedienceComponent,
     ScentWorkComponent,
-    HomeComponent
+    HomeComponent,
+    TrialDetailComponent,
+    CreateTrialComponent,
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,11 @@
 <div class="sport">
-    <button >
-        Add New Event
-    </button>
+    <button *ngIf="!showDetail" id="newTrial" (click)="toggleAddTrialForm()">New Trial</button>
+    <div class="trialDetailButtons">
+        <button *ngIf="showDetail" id="editForm">Update Trial</button>
+        <button *ngIf="showDetail" id="closeForm" (click)="closeForm()">Close Trial Detail</button>
+    </div>
+    <app-create-trial *ngIf="showAddNewForm"></app-create-trial>
+    <app-trial-detail *ngIf="showDetail" [trial]="trial"></app-trial-detail>
     <table>
         <tr>
             <th>Event Title</th>
@@ -16,5 +20,4 @@
             <td>{{ trial.MaxGroupSize }}</td>
         </tr>
     </table>
-
 </div>

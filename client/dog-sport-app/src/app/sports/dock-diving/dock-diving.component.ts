@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Trial } from '../../models/trial';
 
@@ -9,8 +9,12 @@ import { Trial } from '../../models/trial';
   encapsulation: ViewEncapsulation.None
 })
 export class DockDivingComponent implements OnInit {
-  trialList: Trial[];
   trial: Trial;
+  trialList: Trial[];
+  showDetail: boolean = false;
+  showUpdateForm: boolean = false;
+  showAddNewForm: boolean = false;
+  
   private getTrialsSubscription: any;
   private getTrialDetailSubscription: any;
 
@@ -20,6 +24,17 @@ export class DockDivingComponent implements OnInit {
     this.getDivingTrials();
   }
 
+  toggleUpdateForm() {
+    this.showUpdateForm = !this.showUpdateForm;
+  }
+
+  toggleAddTrialForm() {
+    this.showAddNewForm = !this.showAddNewForm;
+  }
+
+  closeForm() {
+    this.showDetail = false;
+  }
   retrieveTrial(selectedTrial: Trial): void {
     console.log(selectedTrial);
     console.log(selectedTrial.GroupId);
@@ -30,6 +45,7 @@ export class DockDivingComponent implements OnInit {
   }
 
   showTrial(trial) {
+    this.showDetail = true;
     this.trial = trial;
     console.log(this.trial);
   }

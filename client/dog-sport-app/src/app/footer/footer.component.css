@@ -1,0 +1,11 @@
+footer {
+    height: 2em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: lightseagreen;
+    position: fixed;
+    bottom: 0;
+    border-top: 2px solid black;
+    margin-top: 2em;
+}

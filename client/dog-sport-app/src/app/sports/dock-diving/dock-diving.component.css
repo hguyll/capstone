@@ -1,32 +1,31 @@
-.sport {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+ .sport {
+    display: inline;
 }
 
 table {
-    font-family: Noto Sans, sans-serif;
     margin-top: 2em;
-    width: 50%;
     text-align: left;
     border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid lightskyblue;
     padding: 1em;
 }
 
 tr:nth-child(even) {
-    background-color: lightskyblue;
+    background-color: lightsalmon;
 }
 
-button {
-    height: 5em;
-    opacity: 20;
-    background-color: lightblue;
-    border: none;
-    cursor: pointer;
-    border-radius: 12px;
-    margin: 1em;
+
+.trial-detail {
+    text-align: center; 
+    float: right;
+    margin: 2em;
+    padding: 1em; 
+    height:  100%;
+    width: 50%;
+} 
+
+.trialDetailButtons {
+    float: right;
 }

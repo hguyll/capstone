@@ -1,0 +1,15 @@
+form>input {
+    margin: 2em;
+    border: none;
+    width: 75%;
+}
+
+form>input:focus {
+    outline: 0;
+    border-bottom: 3px solid plum;
+}
+
+.form-header {
+    font-size: large;
+    text-align: center;
+}

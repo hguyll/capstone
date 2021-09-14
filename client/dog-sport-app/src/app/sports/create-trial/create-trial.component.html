@@ -1,0 +1,19 @@
+<form [formGroup]="createForm">
+    <label for="eventName">Event Name</label>
+    <input type="text" id="eventName" formControlName="GroupName" placeholder="Enter a name for your event">
+    <br>
+    <label for="creatorName">Your Name</label>
+    <input type="text" id="creatorName" formControlName="SponsorName" placeholder="Enter your Name">
+    <br>
+    <label for="creatorPhone">Your Phone Number</label>
+    <input type="text" id="creatorPhone" formControlName="SponsorPhone" placeholder="Enter Your Phone Number">
+    <br>
+    <br>
+    <label for="creatorEmail">Event Email</label>
+    <input type="text" id="creatorEmail" formControlName="SponsorEmail" placeholder="Enter Your Email">
+    <br>
+    <label for="maxSize">Trial Signup Limit</label>
+    <input type="number" id="maxSize" formControlName="MaxGroupSize" placeholder="10">
+    <br>
+    <input type="button" value="Save Trial" (click)="addTrial(createForm.value)"/>
+</form>

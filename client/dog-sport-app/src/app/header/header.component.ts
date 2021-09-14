@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-scent-work',
-  templateUrl: './scent-work.component.html',
-  styleUrls: ['./scent-work.component.css'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ScentWorkComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor() { }
 

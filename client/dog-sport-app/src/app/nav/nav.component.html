@@ -6,5 +6,8 @@
         <li *ngFor="let sport of sports">
             <a [routerLink]="['/sport', sport]" routerLinkActive="active">{{ sport }}</a>
         </li>
+        <li>
+            <a [routerLink]="['/login']">Log In | Sign Up</a>
+        </li>
     </ul>
 </nav>

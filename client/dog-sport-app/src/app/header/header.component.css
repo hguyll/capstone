@@ -1,0 +1,9 @@
+header {
+    background-color: lightseagreen;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+h1 {
+    padding-top: .5em;
+}

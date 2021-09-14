@@ -1,0 +1,12 @@
+<form [formGroup]="detailForm" class="trial-detail" (ngSubmit)="updateTrial()" > 
+    <input class='form-header' type="text" id="GroupName" [value]="trial.GroupName">
+    <br>
+    <label for="sponsorName">Created By: </label>
+    <input type="text" id="sponsorName" [value]="trial.SponsorName">
+    <br>
+    <label for="sponsorPhone">Creator Phone Number: </label>
+    <input type="text" id="sponsorPhone" [value]="trial.SponsorPhone">
+    <br>
+    <label for="sponsorEmail">Creator Email: </label>
+    <input type="text" id="sponsorEmail" [value]="trial.SponsorEmail">
+</form>
