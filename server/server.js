@@ -82,7 +82,8 @@ function isValidGroup(group) {
         return 5;
     if (group.MaxGroupSize == undefined || isNaN(group.MaxGroupSize))
         return 6;
-
+    if(group.Date == undefined || group.Date.trim() == "")
+        return 7;
     return -1;
 }
 
@@ -99,6 +100,8 @@ function isValidMember(member) {
         return 5;
     if (member.MemberDogBreed == undefined || member.MemberDogBreed.trim() == "")
         return 6;
+    if (member.Date == undefined || member.Date.trim() == "")
+        return 7;
     return -1;
 }
 
@@ -236,6 +239,7 @@ app.post("/api/groups", urlencodedParser, function (req, res) {
         SponsorPhone: req.body.SponsorPhone,
         SponsorEmail: req.body.SponsorEmail,
         MaxGroupSize: Number(req.body.MaxGroupSize),
+        Date: req.body.Date,
         Members: []
     };
 
@@ -276,6 +280,7 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
         SponsorPhone: req.body.SponsorPhone,
         SponsorEmail: req.body.SponsorEmail,
         MaxGroupSize: Number(req.body.MaxGroupSize),
+        Date: req.Date
     };
 
     console.log("Performing validation...");
@@ -311,7 +316,7 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
         return;
     }
     match.MaxGroupSize = Number(group.MaxGroupSize);
-
+    match.Date = group.Date;
     fs.writeFileSync(__dirname + "/data/groups.json", JSON.stringify(data));
 
     console.log("Update successful!  New values: ");
@@ -356,7 +361,8 @@ app.post("/api/groups/:id/members", urlencodedParser, function (req, res) {
         MemberPhone: req.body.MemberPhone,
         MemberRole: req.body.MemberRole,
         MemberDogName: req.body.MemberDogName,
-        MemberDogBreed: req.body.MemberDogBreed
+        MemberDogBreed: req.body.MemberDogBreed,
+        Date: req.body.Date
     };
 
     console.log("Performing member validation...");
@@ -383,7 +389,6 @@ app.post("/api/groups/:id/members", urlencodedParser, function (req, res) {
         console.log("Member not added - group at capacity");
         return;
     }
-
     // add the member
     match.Members.push(member);
 
@@ -410,7 +415,8 @@ app.put("/api/groups/:id/members", urlencodedParser, function (req, res) {
         MemberPhone: req.body.MemberPhone,
         MemberRole: req.body.MemberRole,
         MemberDogName: req.body.MemberDogName,
-        MemberDogBreed: req.body.MemberDogBreed
+        MemberDogBreed: req.body.MemberDogBreed,
+        Date: req.body.Date
     };
 
     console.log("Performing member validation...");
@@ -446,6 +452,7 @@ app.put("/api/groups/:id/members", urlencodedParser, function (req, res) {
     match.MemberRole = req.body.MemberRole;
     match.MemberDogName = req.body.MemberDogName;
     match.MemberDogBreed = req.body.MemberDogBreed;
+    match.Date = req.body.Date;
 
     fs.writeFileSync(__dirname + "/data/groups.json", JSON.stringify(data));
 

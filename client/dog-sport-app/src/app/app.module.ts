@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DockDivingComponent } from './sports/dock-diving/dock-diving.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrialDetailComponent } from './sports/trial-detail/trial-detail.component';
@@ -19,7 +18,6 @@ import { SportComponent } from './sports/sport/sport.component';
   declarations: [
     AppComponent,
     NavComponent,
-    DockDivingComponent,
     HomeComponent,
     TrialDetailComponent,
     CreateTrialComponent,

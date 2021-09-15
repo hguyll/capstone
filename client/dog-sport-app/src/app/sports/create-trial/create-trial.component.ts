@@ -17,6 +17,7 @@ export class CreateTrialComponent implements OnInit {
   constructor(private dataService: DataService, fb: FormBuilder) {
     this.createForm = fb.group({
       'GroupName': [null],
+      'Date': [null],
       'OrganizationName': [null],
       'SponsorName': [null],
       'SponsorPhone': [null],

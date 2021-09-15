@@ -37,3 +37,11 @@ tr:nth-child(even) {
 .trialDetailButtons {
     float: right;
 }
+
+#newTrial {
+    float: right;
+}
+
+h1 {
+    text-align: center;
+}

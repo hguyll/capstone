@@ -1,13 +1,13 @@
 <main>
-    <p class="description"> Welcome to the world of Dog Sports. Select a sport to view, create, or sign up for upcoming events. </p>
+    <p *ngIf="!showSport" class="description"> Welcome to the world of Dog Sports. Select a sport to view, create, or sign up for upcoming events. </p>
     <ul>
         <li *ngFor="let sport of sports">
-            <a (click)="toggleShowSport(sport)">
-                <img *ngIf="!showSport" class="home" [src]="'../assets/'+ sport+'.jpg'" />
+            <a *ngIf="!showSport" (click)="toggleShowSport(sport)">
+                <img class="home" [src]="'../assets/'+ sport+'.jpg'" />
                 {{ sport }}
             </a>
         </li>
     </ul>
-    <button id="newTrial" (click)="toggleShowSport('')">Close Sport</button>
+    <button *ngIf="showSport" id="closeSport" (click)="toggleShowSport('')">Close Sport</button>
     <app-sport *ngIf="showSport" [sport]="showSport"></app-sport>
 </main>
