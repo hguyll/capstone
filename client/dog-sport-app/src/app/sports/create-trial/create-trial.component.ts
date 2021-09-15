@@ -38,6 +38,13 @@ export class CreateTrialComponent implements OnInit {
     console.log(currentTrial);
     /* TODO Make Organizations dynamic */
     currentTrial.OrganizationName = "Dock Diving";
-    this.dataService.createTrial(currentTrial);
+    this.dataService.createTrial(currentTrial).subscribe(
+      trial => {
+        console.log("Successfully added trial");
+        console.log(trial);
+      }, 
+      error => {
+        console.log("There was an error");
+      });
   }
 }

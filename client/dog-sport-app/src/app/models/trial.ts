@@ -6,5 +6,5 @@ export interface Trial {
     SponsorPhone: string;
     SponsorEmail: string;
     MaxGroupSize: number;
-    Members: Array<object>;
+    Members?: Array<object>;
 }

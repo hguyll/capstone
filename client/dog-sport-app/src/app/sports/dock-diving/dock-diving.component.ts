@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Trial } from '../../models/trial';
 
@@ -15,6 +15,7 @@ export class DockDivingComponent implements OnInit {
   showUpdateForm: boolean = false;
   showAddNewForm: boolean = false;
   
+  updatedTrial;
   private getTrialsSubscription: any;
   private getTrialDetailSubscription: any;
 
@@ -23,7 +24,7 @@ export class DockDivingComponent implements OnInit {
   ngOnInit(): void {
     this.getDivingTrials();
   }
-
+  
   toggleUpdateForm() {
     this.showUpdateForm = !this.showUpdateForm;
   }
@@ -36,8 +37,6 @@ export class DockDivingComponent implements OnInit {
     this.showDetail = false;
   }
   retrieveTrial(selectedTrial: Trial): void {
-    console.log(selectedTrial);
-    console.log(selectedTrial.GroupId);
     this.getTrialDetailSubscription = this.dataService.getTrialById<Trial>(selectedTrial.GroupId).subscribe(
       (trialDetail) => this.showTrial(trialDetail),
       (error) => console.log(`error: {error}`)
@@ -50,6 +49,45 @@ export class DockDivingComponent implements OnInit {
     console.log(this.trial);
   }
 
+  deleteTrial(selectedTrial: Trial) {
+    console.log("Delete Selected Trial:");
+    console.log(selectedTrial);
+    console.log(selectedTrial.GroupId);
+    this.getTrialDetailSubscription = this.dataService.deleteTrialById<Trial>(selectedTrial.GroupId).subscribe(
+      (trialDetail) => {
+        console.log("Successfully Deleted trial.");
+      },
+      (error) => console.log(`Error Deleting file: {error}`)
+    );
+  }
+
+  updateTrial($event) {
+    console.log("event");
+    console.log($event);
+    console.log("event.GroupId");
+    console.log($event?.GroupId);
+    let currentTrial: Trial = {
+      GroupId: $event?.GroupId,
+      GroupName: $event?.GroupName,
+      MaxGroupSize: $event?.MaxGroupSize,
+       /* TODO Make Organizations dynamic */
+      OrganizationName: "Dock Diving",
+      SponsorEmail: $event?.SponsorEmail,
+      SponsorName: $event?.SponsorName,
+      SponsorPhone: $event?.SponsorPhone,
+    }
+
+
+   
+    this.dataService.updateTrial(currentTrial).subscribe(
+      trial => {
+        console.log("Successfully updated trial");
+        console.log(trial);
+      }, 
+      error => {
+        console.log("There was an error");
+      });
+  }
   getDivingTrials(): void {
     this.getTrialsSubscription = this.dataService.getAllTrials<Trial[]>().subscribe(
       (allTrials) => {

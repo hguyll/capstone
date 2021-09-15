@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Trial } from 'src/app/models/trial';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-trial-detail',
@@ -8,27 +9,31 @@ import { Trial } from 'src/app/models/trial';
   styleUrls: ['./trial-detail.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TrialDetailComponent implements OnInit {
-  @Input()
-  trial: Trial;
-
+export class TrialDetailComponent implements OnInit, OnChanges{
+  @Input()trial: Trial;
+  @Output() update = new EventEmitter<Trial>();
   editing = false;
+  detailForm: FormGroup;
 
-  detailForm = new FormGroup({
-    groupName: new FormControl(''),
-    sponsorName: new FormControl('')
-  });
+  constructor(private fb: FormBuilder) { }
 
-  constructor() {
-
+  ngOnChanges(): void {
+    this.detailForm = this.fb.group({
+      'GroupId': [this.trial?.GroupId],
+      'GroupName': [this.trial?.GroupName],
+      'OrganizationName': [this?.trial.OrganizationName],
+      'SponsorName': [this?.trial.SponsorName],
+      'SponsorPhone': [this?.trial.SponsorPhone],
+      'SponsorEmail': [this?.trial.SponsorEmail],
+      'MaxGroupSize': [this?.trial.MaxGroupSize]
+    });
   }
 
-  updateTrial(): void {
+  ngOnInit(): void { }
 
+  updateTrial(formValues): void {
+    const updatedTrial = formValues;
+    this.update.emit(updatedTrial);
   }
 
-  ngOnInit(): void {
-    console.log("input");
-    console.log(this.trial.GroupName);
-  }
 }

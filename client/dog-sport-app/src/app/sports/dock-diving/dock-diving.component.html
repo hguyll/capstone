@@ -1,11 +1,12 @@
 <div class="sport">
     <button *ngIf="!showDetail" id="newTrial" (click)="toggleAddTrialForm()">New Trial</button>
     <div class="trialDetailButtons">
-        <button *ngIf="showDetail" id="editForm">Update Trial</button>
+        <button *ngIf="showDetail" id="updateChanges" (click)="updateTrial(trial)">Save Changes</button>
+        <button *ngIf="showDetail" id="deleteTrial" (click)="deleteTrial(trial)">Delete Trial</button>
         <button *ngIf="showDetail" id="closeForm" (click)="closeForm()">Close Trial Detail</button>
     </div>
     <app-create-trial *ngIf="showAddNewForm"></app-create-trial>
-    <app-trial-detail *ngIf="showDetail" [trial]="trial"></app-trial-detail>
+    <app-trial-detail *ngIf="showDetail" [(trial)]="trial" (update)="updateTrial($event)"></app-trial-detail>
     <table>
         <tr>
             <th>Event Title</th>

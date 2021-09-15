@@ -1,6 +1,7 @@
  .sport {
-    display: inline;
+    display:inline;
 }
+
 
 table {
     margin-top: 2em;
@@ -26,6 +27,13 @@ tr:nth-child(even) {
     width: 50%;
 } 
 
+#updateChanges {
+    background-color: lightgreen;
+}
+
+#deleteTrial {
+    background-color: red;
+}
 .trialDetailButtons {
     float: right;
 }

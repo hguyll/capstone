@@ -1,12 +1,31 @@
-<form [formGroup]="detailForm" class="trial-detail" (ngSubmit)="updateTrial()" > 
-    <input class='form-header' type="text" id="GroupName" [value]="trial.GroupName">
+<form [formGroup]="detailForm" class="trial-detail">
+    <input class='form-header' type="text" formControlName="GroupId" id="GroupId">
     <br>
-    <label for="sponsorName">Created By: </label>
-    <input type="text" id="sponsorName" [value]="trial.SponsorName">
+    <input class='form-header' type="text" formControlName="GroupName" id="GroupName">
+    <br>
+    <label for="sponsorName">Event Creator: </label>
+    <input type="text" formControlName="SponsorName">
     <br>
     <label for="sponsorPhone">Creator Phone Number: </label>
-    <input type="text" id="sponsorPhone" [value]="trial.SponsorPhone">
+    <input type="text" formControlName="SponsorPhone">
     <br>
     <label for="sponsorEmail">Creator Email: </label>
-    <input type="text" id="sponsorEmail" [value]="trial.SponsorEmail">
+    <input type="text" formControlName="SponsorEmail">
+    <br>
+    <label for="maxSize">Trial Signup Limit</label>
+    <input type="text" id="maxSize" formControlName="MaxGroupSize">
+    <br>
+    <input type="button" value="Save Changes" (click)="updateTrial(detailForm.value)">
 </form>
+<div class="members">
+    <div>
+        <h2> Members:</h2>
+        <h4 *ngIf="trial.Members.length > 0">Current Members Signed Up:</h4>
+        <p *ngIf="!(trial.Members.length > 0)">No one has signed up yet.</p>
+        <ul>
+            <li *ngFor="let member of trial?.Members">
+                {{ member?.MemberName }}
+            </li>
+        </ul>
+    </div>
+</div>
