@@ -16,6 +16,7 @@ import { CreateTrialComponent } from './sports/create-trial/create-trial.compone
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SportComponent } from './sports/sport/sport.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     CreateTrialComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SportComponent
   ],
   imports: [
     BrowserModule,

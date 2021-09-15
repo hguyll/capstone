@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +6,20 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./home.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnChanges {
+  sports = ['Dock Diving','Obedience', 'Scent Work', 'Conformation'];
+  showSport: string = '';
 
   constructor() { }
 
-  ngOnInit(): void {
+  toggleShowSport(sport: string) {
+    this.showSport = sport;
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes.showSport)
+      console.log("changes!");
+  }
+  ngOnInit(): void {}
 
 }

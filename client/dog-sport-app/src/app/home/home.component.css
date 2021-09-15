@@ -1,7 +1,28 @@
 .home {
     display: flex;
     justify-content: space-between;
-    width: 20%;
     border: 10px solid black;
     margin: 2em;
 }
+
+.description {
+    text-align: center;
+}
+
+img {
+    width: 200px;
+    height: 150px;
+}
+main>ul {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+main>ul>li>a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+

@@ -3,27 +3,31 @@ import { DataService } from 'src/app/services/data.service';
 import { Trial } from '../../models/trial';
 
 @Component({
-  selector: 'app-dock-diving',
-  templateUrl: './dock-diving.component.html',
-  styleUrls: ['./dock-diving.component.css'],
+  selector: 'app-sport',
+  templateUrl: './sport.component.html',
+  styleUrls: ['./sport.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class DockDivingComponent implements OnInit {
+export class SportComponent implements OnInit, OnChanges {
   trial: Trial;
   trialList: Trial[];
   showDetail: boolean = false;
   showUpdateForm: boolean = false;
   showAddNewForm: boolean = false;
-  
+  @Input() sport: string;
   updatedTrial;
-  @Input() organizationName: string;
   private getTrialsSubscription: any;
   private getTrialDetailSubscription: any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.getTrials(changes.sport.currentValue);
+  }
 
   ngOnInit(): void {
-    this.getDivingTrials();
+    this.getTrials(this.sport);
   }
   
   toggleUpdateForm() {
@@ -63,12 +67,13 @@ export class DockDivingComponent implements OnInit {
   }
 
   updateTrial($event) {
+    console.log("updating with organization Name");
+    console.log($event?.OrganizationName);
     let currentTrial: Trial = {
       GroupId: $event?.GroupId,
       GroupName: $event?.GroupName,
       MaxGroupSize: $event?.MaxGroupSize,
-       /* TODO Make Organizations dynamic */
-      OrganizationName: "Dock Diving",
+      OrganizationName: $event?.OrganizationName,
       SponsorEmail: $event?.SponsorEmail,
       SponsorName: $event?.SponsorName,
       SponsorPhone: $event?.SponsorPhone,
@@ -85,11 +90,12 @@ export class DockDivingComponent implements OnInit {
         console.log("There was an error");
       });
   }
-  getDivingTrials(): void {
+  
+  getTrials(newSport: string) {
     this.getTrialsSubscription = this.dataService.getAllTrials<Trial[]>().subscribe(
       (allTrials) => {
         this.trialList = allTrials.filter(trials => {
-          return trials.OrganizationName === this.organizationName;
+          return trials.OrganizationName === newSport;
         });
       }
     );

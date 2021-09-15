@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Trial } from 'src/app/models/trial';
 import { DataService } from 'src/app/services/data.service';
@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class CreateTrialComponent implements OnInit {
 
+  @Input() organizationName: string;
   createForm: FormGroup;
 
   constructor(private dataService: DataService, fb: FormBuilder) {
@@ -27,17 +28,13 @@ export class CreateTrialComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTrial(formValues) {
-    console.log(formValues);
+  addTrial(formValues) {;
     let currentTrial: Trial;
     if(this.createForm.invalid) {
       console.log("ERROR: Invalid form. Fix errors and try again.");
     }
     currentTrial = formValues;
-    console.log("Submitted Trial is");
-    console.log(currentTrial);
-    /* TODO Make Organizations dynamic */
-    currentTrial.OrganizationName = "Dock Diving";
+    currentTrial.OrganizationName = this.organizationName;
     this.dataService.createTrial(currentTrial).subscribe(
       trial => {
         console.log("Successfully added trial");
