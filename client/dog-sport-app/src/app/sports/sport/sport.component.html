@@ -1,5 +1,5 @@
 <div class="sport">
-    <button *ngIf="!showDetail" id="newTrial" (click)="toggleAddTrialForm()">New Trial</button>
+    <button *ngIf="!showDetail" id="newTrial" (click)="toggleAddTrialForm()">{{showAddNewForm ? 'Cancel Create Trial' : 'New Trial'}}</button>
     <div class="trialDetailButtons">
         <button *ngIf="showDetail" id="updateChanges" (click)="updateTrial(trial)">Save Changes</button>
         <button *ngIf="showDetail" id="deleteTrial" (click)="deleteTrial(trial)">Delete Trial</button>
