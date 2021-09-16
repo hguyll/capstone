@@ -3,13 +3,13 @@
 }
 
 
-table {
+.sport-table {
     margin-top: 2em;
     text-align: left;
     border-collapse: collapse;
 }
 
-th, td {
+.sport-table th, td {
     padding: 1em;
 }
 
@@ -28,11 +28,11 @@ tr:nth-child(even) {
 } 
 
 #updateChanges {
-    background-color: lightgreen;
+    background-color: #ff5400;
 }
 
 #deleteTrial {
-    background-color: red;
+    background-color: #ff0054;
 }
 .trialDetailButtons {
     float: right;

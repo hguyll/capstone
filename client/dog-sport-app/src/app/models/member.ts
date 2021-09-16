@@ -1,9 +1,9 @@
 export interface Member {
-    memberId: string;
-    memberEmail: string;
-    memberName: string;
-    memberPhone: string;
-    memberRole: string;
-    memberDogName: string;
-    memberDogBreed: string;
+    MemberId: string;
+    MemberEmail: string;
+    MemberName: string;
+    MemberPhone: string;
+    MemberRole: string;
+    MemberDogName: string;
+    MemberDogBreed: string;
 }

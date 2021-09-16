@@ -2,13 +2,12 @@
     <h1>Upcoming {{ sport }} Events</h1>
     <button *ngIf="!showDetail" id="newTrial" (click)="toggleAddTrialForm()">{{showAddNewForm ? 'Cancel Create Trial' : 'New Trial'}}</button>
     <div class="trialDetailButtons">
-        <button *ngIf="showDetail" id="updateChanges" (click)="updateTrial(trial)">Save Changes</button>
         <button *ngIf="showDetail" id="deleteTrial" (click)="deleteTrial(trial)">Delete Trial</button>
         <button *ngIf="showDetail" id="closeForm" (click)="closeForm()">Close Trial Detail</button>
     </div>
     <app-create-trial *ngIf="showAddNewForm" [organizationName]="sport"></app-create-trial>
     <app-trial-detail *ngIf="showDetail" [(trial)]="trial" (update)="updateTrial($event)"></app-trial-detail>
-    <table>
+    <table class="sport-table">
         <tr>
             <th>Event Title</th>
             <th>Event Date</th>

@@ -14,6 +14,8 @@ export class CreateTrialComponent implements OnInit {
   @Input() organizationName: string;
   createForm: FormGroup;
 
+  saved: boolean = false;
+  
   constructor(private dataService: DataService, fb: FormBuilder) {
     this.createForm = fb.group({
       'GroupName': [null],
@@ -26,14 +28,17 @@ export class CreateTrialComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  addTrial(formValues) {;
+  addTrial(formValues) {
     let currentTrial: Trial;
     if(this.createForm.invalid) {
       console.log("ERROR: Invalid form. Fix errors and try again.");
+    } else {
+      this.saved = true;
+
     }
+    
     currentTrial = formValues;
     currentTrial.OrganizationName = this.organizationName;
     this.dataService.createTrial(currentTrial).subscribe(

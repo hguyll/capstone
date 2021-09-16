@@ -21,6 +21,7 @@ export class TrialDetailComponent implements OnInit, OnChanges{
     this.detailForm = this.fb.group({
       'GroupId': [this.trial?.GroupId],
       'GroupName': [this.trial?.GroupName],
+      'Date': [this.trial?.Date],
       'EventName': [this.trial?.Date],
       'OrganizationName': [this?.trial.OrganizationName],
       'SponsorName': [this?.trial.SponsorName],

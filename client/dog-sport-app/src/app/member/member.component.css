@@ -1,0 +1,18 @@
+ table {
+    width: 100%;
+    border: .5px solid gray;
+}
+
+#add-member {
+    float: right;
+}
+
+#submit-member {
+    background-color: #ff0054;
+    float: right;
+}
+
+input[type=text] {
+    width: 95%;
+    margin: 0px;
+}

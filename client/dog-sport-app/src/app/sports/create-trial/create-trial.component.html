@@ -1,4 +1,4 @@
-<form [formGroup]="createForm">
+<form *ngIf="!saved" [formGroup]="createForm">
     <label for="eventName">Event Name</label>
     <input type="text" id="eventName" formControlName="GroupName" placeholder="Enter a name for your event">
     <br>
@@ -18,5 +18,5 @@
     <label for="maxSize">Trial Signup Limit</label>
     <input type="number" id="maxSize" formControlName="MaxGroupSize" placeholder="10">
     <br>
-    <input type="button" value="Save Trial" (click)="addTrial(createForm.value)"/>
+    <input type="button" value="Save Trial" (click)="addTrial(createForm.value)" />
 </form>

@@ -49,8 +49,8 @@ export class DataService {
   }
 
   /* Add Member to Trial */
-  addMemberToTrial<Trial>(trialId: number, member: Member): Observable<Trial> {
-    const results : Observable<Trial> = this.http.post<Trial>(`this.trialsUrl{trialId}/members`,member, this.jsonContentTypeHeaders);
+  addMemberToTrial<Trial>(trialId: string, member: Member): Observable<Trial> {
+    const results : Observable<Trial> = this.http.post<Trial>(this.trialsUrl + trialId + '/members',member, this.jsonContentTypeHeaders);
     return results;
   }
   

@@ -71,6 +71,7 @@ export class SportComponent implements OnInit, OnChanges {
     console.log($event?.OrganizationName);
     let currentTrial: Trial = {
       GroupId: $event?.GroupId,
+      Date: $event?.Date,
       GroupName: $event?.GroupName,
       MaxGroupSize: $event?.MaxGroupSize,
       OrganizationName: $event?.OrganizationName,
@@ -78,9 +79,8 @@ export class SportComponent implements OnInit, OnChanges {
       SponsorName: $event?.SponsorName,
       SponsorPhone: $event?.SponsorPhone,
     }
+    console.log(currentTrial);
 
-
-   
     this.dataService.updateTrial(currentTrial).subscribe(
       trial => {
         console.log("Successfully updated trial");

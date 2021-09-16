@@ -1,0 +1,33 @@
+<div class="members">
+    <button *ngIf="!showAddMemberForm" id="add-member" (click)="toggleAddMember()">Add Member</button>
+
+    <h2> Members</h2>
+    <h4 *ngIf="trialDetails.Members.length > 0">Current Members Signed Up:</h4>
+    <p *ngIf="!(trialDetails.Members.length > 0)">No one has signed up yet.</p>
+    <table *ngIf="trialDetails.Members.length > 0" class="sport-table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Dog Name</th>
+            <th>Dog Breed</th>
+        </tr>
+        <tr *ngFor="let member of trialDetails?.Members">
+            <td> {{ member.MemberName }} </td>
+            <td> {{ member.MemberEmail }} </td>
+            <td> {{ member.MemberPhone }} </td>
+            <td> {{ member.MemberDogName }} </td>
+            <td> {{ member.MemberDogBreed }} </td>
+        </tr>
+    </table>
+    <form *ngIf="showAddMemberForm" [formGroup]="rowForm">
+        Name: <input type="text" class="table-input" formControlName="MemberName">
+        Email: <input type="text" class="table-input" formControlName="MemberEmail">
+        Phone: <input type="text" class="table-input" formControlName="MemberPhone">
+        Dog Name: <input type="text" class="table-input" formControlName="MemberDogName">
+        Dog Breed: <input type="text" class="table-input" formControlName="MemberDogBreed">
+        <input type="button" value="Save Changes" (click)="addMember(rowForm.value)" id="save-changes">
+    </form>
+
+
+</div>

@@ -70,6 +70,8 @@ function getNextId(counterType)  // use 'group' or 'member' or 'user' as counter
 // ------ Validation helpers ------------------
 
 function isValidGroup(group) {
+    console.log("group.date");
+    console.log(group.Date);
     if (group.GroupName == undefined || group.GroupName.trim() == "")
         return 1;
     if (group.OrganizationName == undefined || group.OrganizationName.trim() == "")
@@ -100,8 +102,6 @@ function isValidMember(member) {
         return 5;
     if (member.MemberDogBreed == undefined || member.MemberDogBreed.trim() == "")
         return 6;
-    if (member.Date == undefined || member.Date.trim() == "")
-        return 7;
     return -1;
 }
 
@@ -234,12 +234,12 @@ app.post("/api/groups", urlencodedParser, function (req, res) {
     let group = {
         GroupId: getNextId("group"),  // assign id to group
         GroupName: req.body.GroupName,
+        Date: req.body.Date,
         OrganizationName: req.body.OrganizationName,
         SponsorName: req.body.SponsorName,
         SponsorPhone: req.body.SponsorPhone,
         SponsorEmail: req.body.SponsorEmail,
         MaxGroupSize: Number(req.body.MaxGroupSize),
-        Date: req.body.Date,
         Members: []
     };
 
@@ -275,12 +275,12 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
     let group = {
         GroupId: req.body.GroupId,  // req.params.id if you use id in URL instead of req.body.GroupId
         GroupName: req.body.GroupName,
+        Date: req.body.Date,
         OrganizationName: req.body.OrganizationName,
         SponsorName: req.body.SponsorName,
         SponsorPhone: req.body.SponsorPhone,
         SponsorEmail: req.body.SponsorEmail,
-        MaxGroupSize: Number(req.body.MaxGroupSize),
-        Date: req.Date
+        MaxGroupSize: Number(req.body.MaxGroupSize)
     };
 
     console.log("Performing validation...");
@@ -361,8 +361,7 @@ app.post("/api/groups/:id/members", urlencodedParser, function (req, res) {
         MemberPhone: req.body.MemberPhone,
         MemberRole: req.body.MemberRole,
         MemberDogName: req.body.MemberDogName,
-        MemberDogBreed: req.body.MemberDogBreed,
-        Date: req.body.Date
+        MemberDogBreed: req.body.MemberDogBreed
     };
 
     console.log("Performing member validation...");
@@ -415,8 +414,7 @@ app.put("/api/groups/:id/members", urlencodedParser, function (req, res) {
         MemberPhone: req.body.MemberPhone,
         MemberRole: req.body.MemberRole,
         MemberDogName: req.body.MemberDogName,
-        MemberDogBreed: req.body.MemberDogBreed,
-        Date: req.body.Date
+        MemberDogBreed: req.body.MemberDogBreed
     };
 
     console.log("Performing member validation...");

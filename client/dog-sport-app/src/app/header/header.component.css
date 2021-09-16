@@ -1,7 +1,10 @@
 header {
-    background-color: lightseagreen;
+    width: 100%;
+    background-color: #9e0059;
     border-bottom: 2px solid black;
     text-align: center;
+    margin: 0px;
+    padding: 0px;
 }
 
 h1 {

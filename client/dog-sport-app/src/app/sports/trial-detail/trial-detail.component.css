@@ -1,15 +1,57 @@
-form>input {
-    margin: 2em;
-    border: none;
-    width: 75%;
+.trial-detail {
+    display: flexbox;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    text-align: left;
 }
 
-form>input:focus {
+form input[type=text] {
+    margin: 2em;
+    border: .5px dotted gray;
+    border-radius: 2px;
+    width: 65%;
+    border: .5px solid gray;
+    padding: 7px;
+}
+
+form input[type=date] {
+    margin: 2em;
+    border: .5px dotted gray;
+    border-radius: 2px;
+    width: 65%;
+    border: .5px solid gray;
+    padding: 7px;
+}
+
+form>input[type=text]:focus {
     outline: 0;
-    border-bottom: 3px solid plum;
+    border-bottom: 3px solid #5a189a;
+}
+
+form>input[type=date]:focus {
+    outline: 0;
+    border-bottom: 3px solid #5a189a;
 }
 
 .form-header {
     font-size: large;
-    text-align: center;
+}
+
+#GroupId {
+    display: none;
+}
+
+.trial-form {
+    display: flexbox;
+    width: 100%;
+}
+
+.members {
+    display: flexbox;
+    width: 100%;
+    float: center;
+    justify-content: end;
+    border-radius: 2px;
+    padding: 30px;
+    margin:  2em;
 }
