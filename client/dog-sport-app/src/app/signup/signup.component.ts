@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
   signedUp: boolean = false;
   signUpForm: FormGroup;
   member: Member;
+  submitted: boolean = false;
 
   constructor(private userService: UserService, fb: FormBuilder) {
     this.signUpForm = fb.group({
@@ -34,6 +35,7 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(signUpFormData) {
+    this.submitted = true;
     this.userService.submitUser(signUpFormData);
   }
 }

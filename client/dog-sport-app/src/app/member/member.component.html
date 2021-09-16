@@ -20,14 +20,14 @@
             <td> {{ member.MemberDogBreed }} </td>
         </tr>
     </table>
+    <div class="error" *ngIf="rowForm.invalid"> Please fill out all required fields. </div>
     <form *ngIf="showAddMemberForm" [formGroup]="rowForm">
-        Name: <input type="text" class="table-input" formControlName="MemberName">
-        Email: <input type="text" class="table-input" formControlName="MemberEmail">
-        Phone: <input type="text" class="table-input" formControlName="MemberPhone">
-        Dog Name: <input type="text" class="table-input" formControlName="MemberDogName">
-        Dog Breed: <input type="text" class="table-input" formControlName="MemberDogBreed">
+        Name*: <input type="text" class="table-input" formControlName="MemberName" required>
+        Email*: <input type="text" class="table-input" formControlName="MemberEmail" required>
+        Phone*: <input type="text" class="table-input" formControlName="MemberPhone" required>
+        Dog Name*: <input type="text" class="table-input" formControlName="MemberDogName" required>
+        Dog Breed*: <input type="text" class="table-input" formControlName="MemberDogBreed" required>
         <input type="button" value="Save Changes" (click)="addMember(rowForm.value)" id="save-changes">
     </form>
-
 
 </div>

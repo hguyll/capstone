@@ -1,3 +1,5 @@
+<div *ngIf="displayFailureError" class="error"> Please fill out the missing fields. </div>
+<div *ngIf="errorUploading" class="error"> Error uploading event. Try again. </div>
 <form *ngIf="!saved" [formGroup]="createForm">
     <label for="eventName">Event Name</label>
     <input type="text" id="eventName" formControlName="GroupName" placeholder="Enter a name for your event">
@@ -19,4 +21,5 @@
     <input type="number" id="maxSize" formControlName="MaxGroupSize" placeholder="10">
     <br>
     <input type="button" value="Save Trial" (click)="addTrial(createForm.value)" />
+    <input type="button" value="Cancel Create" (click)="cancelCreate()" />
 </form>

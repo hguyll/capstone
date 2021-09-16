@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Trial } from 'src/app/models/trial';
 import { DataService } from 'src/app/services/data.service';
 
@@ -13,40 +14,48 @@ export class CreateTrialComponent implements OnInit {
 
   @Input() organizationName: string;
   createForm: FormGroup;
-
   saved: boolean = false;
-  
-  constructor(private dataService: DataService, fb: FormBuilder) {
+  displayFailureError = false;
+  errorUploading = false;
+
+  constructor(private dataService: DataService, private router: Router, fb: FormBuilder, private route: ActivatedRoute) {
+    if (this.route) {
+      this.organizationName = this.route.snapshot.paramMap.get('sport')
+    }
     this.createForm = fb.group({
-      'GroupName': [null],
-      'Date': [null],
+      'GroupName': [null, Validators.required],
+      'Date': [null, Validators.required],
       'OrganizationName': [null],
-      'SponsorName': [null],
-      'SponsorPhone': [null],
-      'SponsorEmail': [null],
-      'MaxGroupSize': [null]
+      'SponsorName': [null, Validators.required],
+      'SponsorPhone': [null, Validators.required],
+      'SponsorEmail': [null, Validators.required],
+      'MaxGroupSize': [null, Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  cancelCreate() {
+    this.router.navigate(['/sport', this.organizationName]);
+  }
 
   addTrial(formValues) {
     let currentTrial: Trial;
-    if(this.createForm.invalid) {
-      console.log("ERROR: Invalid form. Fix errors and try again.");
+    if (this.createForm.invalid) {
+      console.log(this.createForm);
+      this.displayFailureError = true;
     } else {
-      this.saved = true;
+      currentTrial = formValues;
+      currentTrial.OrganizationName = this.organizationName;
+      this.dataService.createTrial(currentTrial).subscribe(
+        trial => {
+          console.log("Successfully added trial");
+          this.router.navigate(['/sport', this.organizationName]);
+        },
+        error => {
+          this.errorUploading = true;
+          console.log("There was an error");
+        });
     }
-    
-    currentTrial = formValues;
-    currentTrial.OrganizationName = this.organizationName;
-    this.dataService.createTrial(currentTrial).subscribe(
-      trial => {
-        console.log("Successfully added trial");
-        console.log(trial);
-      }, 
-      error => {
-        console.log("There was an error");
-      });
   }
 }

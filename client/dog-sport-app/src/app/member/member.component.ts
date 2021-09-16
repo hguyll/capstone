@@ -14,9 +14,10 @@ export class MemberComponent implements OnInit {
   @Input() trialDetails: Trial;
   showAddMemberForm: boolean;
   rowForm: FormGroup;
+  
   private showSubmitButton: boolean;
 
-  constructor(fb: FormBuilder, private dataService: DataService) {
+  constructor(private fb: FormBuilder, private dataService: DataService) {
     this.rowForm = fb.group({
       'MemberName': [],
       'MemberEmail': [],

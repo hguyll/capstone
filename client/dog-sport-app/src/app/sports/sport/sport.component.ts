@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { Trial } from '../../models/trial';
 
@@ -19,7 +20,11 @@ export class SportComponent implements OnInit, OnChanges {
   private getTrialsSubscription: any;
   private getTrialDetailSubscription: any;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) {
+    if (this.route) {
+      this.sport = this.route.snapshot.paramMap.get('sport')
+    }
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -35,6 +40,7 @@ export class SportComponent implements OnInit, OnChanges {
   }
 
   toggleAddTrialForm() {
+    this.router.navigate(['createEvent', this.sport]);
     this.showAddNewForm = !this.showAddNewForm;
   }
 

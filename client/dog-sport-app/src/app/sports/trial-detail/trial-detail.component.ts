@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Trial } from 'src/app/models/trial';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-trial-detail',

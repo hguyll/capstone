@@ -1,9 +1,10 @@
+<div class="error" *ngIf="signUpForm.invalid && submitted"> Please fill out all required fields. </div>
 <form *ngIf="!getSignedUp()" [formGroup]="signUpForm">
-    Name: <input type="text" class="table-input" formControlName="MemberName"> <br>
-    Email: <input type="text" class="table-input" formControlName="MemberEmail"> <br>
-    Phone: <input type="text" class="table-input" formControlName="MemberPhone"> <br>
-    Dog Name: <input type="text" class="table-input" formControlName="MemberDogName"> <br>
-    Dog Breed: <input type="text" class="table-input" formControlName="MemberDogBreed"> <br>
+    Name*: <input type="text" class="table-input" formControlName="MemberName" required> <br>
+    Email*: <input type="text" class="table-input" formControlName="MemberEmail" required> <br>
+    Phone*: <input type="text" class="table-input" formControlName="MemberPhone" required> <br>
+    Dog Name*: <input type="text" class="table-input" formControlName="MemberDogName" required> <br>
+    Dog Breed*: <input type="text" class="table-input" formControlName="MemberDogBreed" required> <br>
     <input type="button" value="Submit" (click)="signUp(signUpForm.value)">
 </form>
 
@@ -13,5 +14,5 @@
     Email: {{ member.MemberEmail }} <br>
     Phone: {{ member.MemberPhone }} <br>
     Dog Name: {{ member.MemberDogName }} <br>
-    Dog Breed:  {{ member.MemberDogBreed }} <br>
+    Dog Breed: {{ member.MemberDogBreed }} <br>
 </div>

@@ -4,6 +4,8 @@ import { EventSignUpComponent } from './event-sign-up/event-sign-up.component';
 
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { CreateTrialComponent } from './sports/create-trial/create-trial.component';
+import { SportComponent } from './sports/sport/sport.component';
 
 const routes: Routes = [
     {
@@ -15,8 +17,16 @@ const routes: Routes = [
         component: SignupComponent
     },
     {
+        path: 'sport/:sport',
+        component: SportComponent
+    },
+    {
         path: 'eventSignup',
         component: EventSignUpComponent
+    },
+    {
+        path: 'createEvent/:sport',
+        component: CreateTrialComponent
     },
     {
         path: 'addNew',
