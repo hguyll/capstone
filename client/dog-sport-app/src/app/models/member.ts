@@ -6,4 +6,5 @@ export interface Member {
     MemberRole: string;
     MemberDogName: string;
     MemberDogBreed: string;
+    Registered?: boolean;
 }

@@ -1,0 +1,17 @@
+<form *ngIf="!getSignedUp()" [formGroup]="signUpForm">
+    Name: <input type="text" class="table-input" formControlName="MemberName"> <br>
+    Email: <input type="text" class="table-input" formControlName="MemberEmail"> <br>
+    Phone: <input type="text" class="table-input" formControlName="MemberPhone"> <br>
+    Dog Name: <input type="text" class="table-input" formControlName="MemberDogName"> <br>
+    Dog Breed: <input type="text" class="table-input" formControlName="MemberDogBreed"> <br>
+    <input type="button" value="Submit" (click)="signUp(signUpForm.value)">
+</form>
+
+<div *ngIf="getSignedUp()" id="profile">
+    <h2> Your Profile </h2>
+    Name: {{ member.MemberName }} <br>
+    Email: {{ member.MemberEmail }} <br>
+    Phone: {{ member.MemberPhone }} <br>
+    Dog Name: {{ member.MemberDogName }} <br>
+    Dog Breed:  {{ member.MemberDogBreed }} <br>
+</div>

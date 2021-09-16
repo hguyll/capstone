@@ -29,7 +29,7 @@ export class SportComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getTrials(this.sport);
   }
-  
+
   toggleUpdateForm() {
     this.showUpdateForm = !this.showUpdateForm;
   }
@@ -85,23 +85,27 @@ export class SportComponent implements OnInit, OnChanges {
       trial => {
         console.log("Successfully updated trial");
         console.log(trial);
-      }, 
+      },
       error => {
         console.log("There was an error");
       });
   }
-  
+
   getTrials(newSport: string) {
     this.getTrialsSubscription = this.dataService.getAllTrials<Trial[]>().subscribe(
       (allTrials) => {
-        this.trialList = allTrials.filter(trials => {
-          return trials.OrganizationName === newSport;
-        });
+        if (newSport === 'all') {
+          this.trialList = allTrials;
+        } else {
+          this.trialList = allTrials.filter(trials => {
+            return trials.OrganizationName === newSport;
+          });
+        }
       }
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.getTrialsSubscription?.unsubscribe();
     this.getTrialDetailSubscription?.unsubscribe();
   }

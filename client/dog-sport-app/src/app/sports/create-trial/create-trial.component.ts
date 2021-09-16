@@ -36,7 +36,6 @@ export class CreateTrialComponent implements OnInit {
       console.log("ERROR: Invalid form. Fix errors and try again.");
     } else {
       this.saved = true;
-
     }
     
     currentTrial = formValues;

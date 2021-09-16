@@ -1,6 +1,6 @@
 <div class="sport">
-    <h1>Upcoming {{ sport }} Events</h1>
-    <button *ngIf="!showDetail" id="newTrial" (click)="toggleAddTrialForm()">{{showAddNewForm ? 'Cancel Create Trial' : 'New Trial'}}</button>
+    <h1 *ngIf="sport != 'all'">Upcoming {{ sport }} Events</h1>
+    <button *ngIf="sport != 'all' && !showDetail" id="newTrial" (click)="toggleAddTrialForm()">{{showAddNewForm ? 'Cancel Create Trial' : 'New Trial'}}</button>
     <div class="trialDetailButtons">
         <button *ngIf="showDetail" id="deleteTrial" (click)="deleteTrial(trial)">Delete Trial</button>
         <button *ngIf="showDetail" id="closeForm" (click)="closeForm()">Close Trial Detail</button>
@@ -13,12 +13,14 @@
             <th>Event Date</th>
             <th>Current Signups</th>
             <th>Max Signups</th>
+            <th>Sport Name</th>
         </tr>
         <tr *ngFor="let trial of trialList" (click)="retrieveTrial(trial)">
             <td>{{ trial.GroupName }}</td>
             <td>{{ trial.Date }}</td>
             <td>{{ trial.Members.length }}</td>
             <td>{{ trial.MaxGroupSize }}</td>
+            <td>{{ trial.OrganizationName }}</td>
         </tr>
     </table>
 </div>
