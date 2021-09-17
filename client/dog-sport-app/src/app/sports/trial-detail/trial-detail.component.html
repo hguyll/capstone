@@ -1,4 +1,5 @@
 <div class="trial-detail">
+
     <form [formGroup]="detailForm" class="trial-form">
         <input type="text" formControlName="GroupId" id="GroupId">
 
@@ -24,7 +25,7 @@
         <label for="maxSize"> Trial Signup Limit </label>
         <input type="text" id="maxSize" formControlName="MaxGroupSize">
         <br>
-
+        <button id="deleteTrial" (click)="deleteTrial()">Delete Trial</button>
         <input type="button" value="Save Changes" (click)="updateTrial(detailForm.value)" id="save-changes">
     </form>
     <app-member [(trialDetails)]="trial"></app-member>

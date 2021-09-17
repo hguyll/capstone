@@ -24,7 +24,6 @@ export class SportComponent implements OnInit, OnChanges {
     if (this.route) {
       this.sport = this.route.snapshot.paramMap.get('sport')
     }
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -47,11 +46,13 @@ export class SportComponent implements OnInit, OnChanges {
   closeForm() {
     this.showDetail = false;
   }
+
   retrieveTrial(selectedTrial: Trial): void {
-    this.getTrialDetailSubscription = this.dataService.getTrialById<Trial>(selectedTrial.GroupId).subscribe(
-      (trialDetail) => this.showTrial(trialDetail),
-      (error) => console.log(`error: {error}`)
-    );
+    this.router.navigate(['/viewEditEvent', selectedTrial.GroupId]);
+    // this.getTrialDetailSubscription = this.dataService.getTrialById<Trial>(selectedTrial.GroupId).subscribe(
+    //   (trialDetail) => this.showTrial(trialDetail),
+    //   (error) => console.log(`error: {error}`)
+    // );
   }
 
   showTrial(trial) {

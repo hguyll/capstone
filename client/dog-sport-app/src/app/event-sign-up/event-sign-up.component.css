@@ -1,6 +1,10 @@
 #event-sign-up {
-    display: block;
     text-align: center;
-    width: 100%;
-    min-height: 20em;
+    min-height: 30em;
+    padding-left: 200px;
+    width: 75%;
+}
+
+h2 {
+    text-align: center;
 }

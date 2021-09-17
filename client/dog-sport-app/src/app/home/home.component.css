@@ -1,7 +1,7 @@
 .home {
     display: flex;
     justify-content: space-between;
-    border: 8px solid black;
+    border: 9px solid black;
     border-radius: 2px;
     margin: 2em;
 }
@@ -11,18 +11,23 @@
 }
 
 main {
-    min-height: 20em;
+    min-height: 30em;
 }
 
 img {
     width: 200px;
-    height: 150px;
+    height: 152px;
 }
+
 main>ul {
     text-align: center;
     display: flex;
     justify-content: center;
     list-style-type: none;
+}
+
+main>ul>li {
+    padding: 1em;
 }
 
 main>ul>li>a {

@@ -1,7 +1,6 @@
-.sport {
-    display:inline;
+.sports {
+    min-height: 30em;
 }
-
 
 .sport-table {
     margin-top: 2em;
@@ -16,16 +15,6 @@
 tr:nth-child(even) {
     background-color: lavenderblush;
 }
-
-
-.trial-detail {
-    text-align: center; 
-    float: right;
-    margin: 2em;
-    padding: 1em; 
-    height:  100%;
-    width: 50%;
-} 
 
 #updateChanges {
     background-color: #ff5400;

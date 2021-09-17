@@ -1,8 +1,9 @@
 .trial-detail {
-    display: flexbox;
-    justify-content: flex-start;
+    display: inline;
     flex-wrap: nowrap;
-    text-align: left;
+    text-align: right;
+    width: 50%;
+    min-height: 30em;
 }
 
 form input[type=text] {
@@ -44,14 +45,4 @@ form>input[type=date]:focus {
 .trial-form {
     display: flexbox;
     width: 100%;
-}
-
-.members {
-    display: flexbox;
-    width: 100%;
-    float: center;
-    justify-content: end;
-    border-radius: 2px;
-    padding: 30px;
-    margin:  2em;
 }

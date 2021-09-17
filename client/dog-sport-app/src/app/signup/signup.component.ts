@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Member } from '../models/member';
 import { UserService } from '../services/user.service';
@@ -6,7 +6,8 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SignupComponent implements OnInit {
   signedUp: boolean = false;

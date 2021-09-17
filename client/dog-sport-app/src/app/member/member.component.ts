@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Member } from '../models/member';
 import { Trial } from '../models/trial';
@@ -7,14 +7,16 @@ import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
-  styleUrls: ['./member.component.css']
+  styleUrls: ['./member.component.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class MemberComponent implements OnInit {
 
   @Input() trialDetails: Trial;
   showAddMemberForm: boolean;
   rowForm: FormGroup;
-  
+  displayError: boolean = false;
   private showSubmitButton: boolean;
 
   constructor(private fb: FormBuilder, private dataService: DataService) {
@@ -43,8 +45,10 @@ export class MemberComponent implements OnInit {
   addMember(formValues) {
     let currentMember: Member;
     if(this.rowForm.invalid) {
+      this.displayError = true;
       console.log("ERROR: Invalid form. Fix errors and try again.");
     } else {
+      this.displayError = false;
       this.showAddMemberForm = false;
     }
     currentMember = formValues;

@@ -1,10 +1,21 @@
  table {
     width: 100%;
-    border: .5px solid gray;
+    border-collapse: true;
+    margin-top: 2em;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: lavenderblush;
+}
+
+tr {
+    margin-top: 2em;
 }
 
 #add-member {
-    float: right;
+    margin-top: 30px;
 }
 
 #submit-member {
@@ -13,6 +24,47 @@
 }
 
 input[type=text] {
-    width: 95%;
+    width: 50%;
     margin: 0px;
+}
+
+.members {
+    width: 100%;
+    border-radius: 2px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2, h4 {
+    text-align: center;
+}
+
+.add-member-form {
+    margin: 20px;
+    padding: 2em;
+}
+
+.new-member {
+    text-align: right;
+}
+
+.error {
+    text-align: center;
+    float: right;
+}
+
+#member-table {
+    width: 50%;
+    display: table;
+    margin: auto;
+}
+
+#full-event {
+    color: red;
+    padding: 20px;
 }

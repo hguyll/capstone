@@ -1,12 +1,13 @@
 <main>
-    <p *ngIf="!showSport" class="description"> Welcome to the world of Dog Sports. Select a sport to view, create, or sign up for upcoming events. </p>
+    <p *ngIf="!showSport" class="description"> Welcome to the world of Dog Sports. Select a sport to view, create, or
+        sign up for upcoming events. </p>
     <ul>
         <li *ngFor="let sport of sports">
-            <!-- <a *ngIf="!showSport" (click)="toggleShowSport(sport)"> -->
-               <a [routerLink]="['/sport', sport]">
-                <img class="home" [src]="'../assets/'+ sport+'.jpg'" alt="Cute dog" />
-                {{ sport }}
+            <a [routerLink]="['/sport', sport.OrganizationName]">
+                <img class="home" [src]="'../assets/'+ sport.OrganizationName + '.jpg'" alt="Cute dog" />
             </a>
+            <h3>{{ sport.OrganizationName }}</h3>
+            <p class="sport-descriptions">{{ sport.Description }}</p>
         </li>
     </ul>
     <button *ngIf="showSport" id="closeSport" (click)="toggleShowSport('')">Close Sport</button>

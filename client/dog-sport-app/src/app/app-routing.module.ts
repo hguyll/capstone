@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { CreateTrialComponent } from './sports/create-trial/create-trial.component';
 import { SportComponent } from './sports/sport/sport.component';
+import { TrialDetailComponent } from './sports/trial-detail/trial-detail.component';
 
 const routes: Routes = [
     {
@@ -19,6 +20,10 @@ const routes: Routes = [
     {
         path: 'sport/:sport',
         component: SportComponent
+    },
+    {
+        path: 'viewEditEvent/:eventId',
+        component: TrialDetailComponent
     },
     {
         path: 'eventSignup',
