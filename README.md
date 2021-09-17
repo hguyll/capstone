@@ -8,11 +8,10 @@ The idea of this application is to be a "one-stop" shop for dog enthusiasts wher
 
 ## Development server
 
-First, fire up the server:
-- Change directories into the `server/`directory. Run the following commands in this order:
+- First, fire up the backend server by changing directories into the `server/`directory. Run the following commands in this order:
   - `npm install`
   - `node server.js`
-Next, start the frontend application.
+Next, start the frontend application
 - Change directories to client/dog-sport-app and run ` ng serve `
 - Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
